@@ -36,7 +36,7 @@ const AllProducts = () => {
         <div className="main_section">
           <div className="sub_section">
             <div className="image_section">
-              {" "}
+  
               <img
                 className="image_container"
                 src={product?.image}

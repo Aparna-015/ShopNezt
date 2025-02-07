@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 const Product = ({ products }) => {
   const { id, title, price, image } = products;
-  console.log(title);
   const navigate = useNavigate();
 
   const handleclick = (id) => {

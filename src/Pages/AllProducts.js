@@ -57,7 +57,7 @@ const AllProducts = () => {
         </div>
       ) : (
         <div>
-          <h1> not found</h1>
+          <h1>Product not found</h1>
         </div>
       )}
     </div>

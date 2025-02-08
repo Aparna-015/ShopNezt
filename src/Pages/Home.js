@@ -39,7 +39,10 @@ const Home = () => {
         
         <select onChange={(e) => setSelectedCategory(e.target.value)}>
           <option value="">Select a category</option>
+
+
           {category?.map((category, index) => (
+
             <option key={index} value={category}>
               {category}
             </option>

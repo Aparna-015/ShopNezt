@@ -1,7 +1,7 @@
 import axios from "axios";
-import React, {  useEffect, useState } from "react";
+import React, {  useContext, useEffect, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
-// import { CartContext } from "../Components/Context/Context";
+ import { CartContext } from "../Components/Context/Context";
 
 const AllProducts = () => {
   const [product, setProduct] = useState([]);
@@ -26,13 +26,13 @@ const AllProducts = () => {
   const navigate =useNavigate()
 
   const handleAddToCart=(id)=>{
-    // addToCart(product)
+     addToCart(product)
     console.log(id,"cartid");
     
   navigate(`/cart`)
   }
 
-    // const { addToCart } = useContext(CartContext);
+     const { addToCart } = useContext(CartContext);
 
   return (
     <div className="products">
@@ -57,7 +57,7 @@ const AllProducts = () => {
               <h1 className="font-bold m-4">{product?.price}</h1>{" "}
             </div>
           </div>
-          <button className="btnn1" onClick={()=>handleAddToCart()}>Add to cart</button>
+          <button className="btnn1" onClick={()=>handleAddToCart(id)}>Add to cart</button>
         </div>
       ) : (
         <div>

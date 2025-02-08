@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import Product from "../Components/Product";
 
@@ -31,6 +31,8 @@ const Home = () => {
       .then((data) => SetCategory(data));
   }, [category]);
 
+ const filterdata= selectedCategory?data.filter((items)=>items.category===selectedCategory):data;
+
   return (
     <div className="container">
       <div className="select">
@@ -43,8 +45,10 @@ const Home = () => {
             </option>
           ))}
         </select>
+        
       </div>
-      {data.map((item) => (
+
+      {filterdata.map((item) => (
         <Product products={item} />
       ))}
     </div>

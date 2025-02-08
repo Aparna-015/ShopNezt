@@ -3,6 +3,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 
 const Header = () => {
+
   return (
     <header class="header">
       <div class="logo">Logo</div>

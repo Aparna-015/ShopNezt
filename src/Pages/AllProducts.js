@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
+// import { CartContext } from "../Components/Context/Context";
 
 const AllProducts = () => {
   const [product, setProduct] = useState([]);
@@ -25,11 +26,14 @@ const AllProducts = () => {
   const navigate =useNavigate()
 
   const handleAddToCart=(id)=>{
-
+    // addToCart(product)
     console.log(id,"cartid");
     
   navigate(`/cart`)
   }
+
+    // const { addToCart } = useContext(CartContext);
+
   return (
     <div className="products">
       {product ? (

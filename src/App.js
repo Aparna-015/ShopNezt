@@ -9,6 +9,7 @@ import Cart from "./Pages/User/Cart";
 function App() {
   return (
     <div className="App">
+   
       <Header />
       <Router>
         <Routes>
@@ -18,6 +19,7 @@ function App() {
         </Routes>
       </Router>
       <Footer />
+   
     </div>
   );
 }

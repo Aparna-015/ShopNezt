@@ -39,14 +39,14 @@ const AllProducts = () => {
     })
     .then((res) => res.json())
     .then((data) => {
-      console.log("Added to cart:", data);
+      console.log("Added to Cart:", data);
       navigate("/cart"); 
     })
     .catch((error) => console.error("Error:", error));
 };
 
 
-    //  const { addToCart } = useContext(CartContext)
+    
   return (
     <div className="products">
       {product ? (

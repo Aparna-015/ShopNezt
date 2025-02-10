@@ -6,7 +6,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 const AllProducts = () => {
   const [product, setProduct] = useState([]);
   const { id } = useParams();
-  console.log(product,"products");
+  
   
   useEffect(() => {
     if (id) {
@@ -34,7 +34,7 @@ const AllProducts = () => {
       body: JSON.stringify({
         userId: 5,
         date: new Date().toISOString().split("T")[0], 
-        products: [{ productId: product.id, quantity: 2}],
+        products: [{ productId: product.id, quantity: 1}],
       }),
     })
     .then((res) => res.json())

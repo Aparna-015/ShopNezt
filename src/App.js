@@ -5,12 +5,12 @@ import Home from "./Pages/Home";
 import Footer from "./Components/Footer";
 import AllProducts from "./Pages/AllProducts";
 import Cart from "./Pages/User/Cart";
-import Cartprovider from "./Components/Context/Context";
+
 
 function App() {
   return (
     <div className="App">
-      <Cartprovider>
+      
       <Header />
       <Router>
         <Routes>
@@ -20,7 +20,7 @@ function App() {
         </Routes>
       </Router>
       <Footer />
-      </Cartprovider>
+  
     </div>
   );
 }

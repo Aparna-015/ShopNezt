@@ -6,7 +6,8 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 const AllProducts = () => {
   const [product, setProduct] = useState([]);
   const { id } = useParams();
-
+  console.log(product,"products");
+  
   useEffect(() => {
     if (id) {
       axios
@@ -25,15 +26,27 @@ const AllProducts = () => {
 
   const navigate =useNavigate()
 
-  const handleAddToCart=(id)=>{
-     addToCart(product)
-    console.log(id,"cartid");
-    
-  navigate(`/cart`)
-  }
 
-     const { addToCart } = useContext(CartContext);
+  const handleAddToCart = () => {
+    fetch("https://fakestoreapi.com/carts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userId: 5,
+        date: new Date().toISOString().split("T")[0], 
+        products: [{ productId: product.id, quantity: 2}],
+      }),
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("Added to cart:", data);
+      navigate("/cart"); 
+    })
+    .catch((error) => console.error("Error:", error));
+};
 
+
+    //  const { addToCart } = useContext(CartContext)
   return (
     <div className="products">
       {product ? (
@@ -57,7 +70,7 @@ const AllProducts = () => {
               <h1 className="font-bold m-4">{product?.price}</h1>{" "}
             </div>
           </div>
-          <button className="btnn1" onClick={()=>handleAddToCart(id)}>Add to cart</button>
+          <button className="btnn1" onClick={()=>handleAddToCart()}>Add to cart</button>
         </div>
       ) : (
         <div>

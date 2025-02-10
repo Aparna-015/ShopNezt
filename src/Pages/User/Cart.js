@@ -1,28 +1,22 @@
-import React, { useContext } from 'react'
-import { CartContext } from '../../Components/Context/Context'
+import { useEffect, useState } from "react";
 
 const Cart = () => {
-
-  const {carts}=useContext(CartContext)
-  console.log(carts,"items");
-
+  const [cartitems, setCartitems] = useState([]);
+  console.log(cartitems,"cartitem");
   
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/carts")
+      .then((res) => res.json())
+      .then((data) => setCartitems(data));
+  }, []);
+
   return (
     <div>
-          
-      {carts?.map((item, index) => (
-        <div key={index}>
-          <h2>{item.title}</h2>
-          <h3>${item.price}</h3>
-          <img src={item.image} alt=""/>
-          <button>-</button>1
-          <button>+</button>
-        </div>
-
-      ))}
+      <h1>Cart</h1>
+      
     </div>
   );
 };
 
-
-export default Cart
+export default Cart;

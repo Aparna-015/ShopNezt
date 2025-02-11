@@ -1,7 +1,6 @@
 import axios from "axios";
-import React, {  useContext, useEffect, useState } from "react";
+import React, {   useEffect, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
- import { CartContext } from "../Components/Context/Context";
 
 const AllProducts = () => {
   const [product, setProduct] = useState([]);
@@ -32,7 +31,7 @@ const AllProducts = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        userId: 5,
+        userId: 2,
         date: new Date().toISOString().split("T")[0], 
         products: [{ productId: product.id, quantity: 1}],
       }),

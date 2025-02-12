@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const Cart = () => {
   const [cartitems, setCartitems] = useState([]);
 
+  console.log(cartitems);
   
 
   useEffect(() => {

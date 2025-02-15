@@ -1,8 +1,12 @@
 import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useSelector } from "react-redux";
 
 
 const Header = () => {
+  const cart=useSelector((state)=>state.cart.cartitems)
+  console.log(cart);
+  
 
   return (
     <header class="header">
@@ -12,13 +16,15 @@ const Header = () => {
         <input type="text" placeholder="Search ..." />
         <button className="button1">🔍</button>
       </div>
-      <div className="buttons">
+   
+      <div className="cart_icon">
        
         <AiOutlineShoppingCart />
-        <button className="btn1">Login</button>
-
-      </div>
-      
+        <span className="cart-count">{cart.length}</span>
+        </div>
+        {/* <div>   <button className="btn1">Login</button>
+        </div> */}
+     
     </header>
   );
 };

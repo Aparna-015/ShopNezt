@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, {   useEffect, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { addTocart } from "../Redux/Features/CartSlice";
+import { useDispatch } from "react-redux";
 
 const AllProducts = () => {
   const [product, setProduct] = useState([]);
   const { id } = useParams();
-  
+  const dispatch = useDispatch();  
   
   useEffect(() => {
     if (id) {
@@ -27,21 +29,9 @@ const AllProducts = () => {
 
 
   const handleAddToCart = () => {
-    fetch("https://fakestoreapi.com/carts", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        userId: 2,
-        date: new Date().toISOString().split("T")[0], 
-        products: [{ productId: product.id, quantity: 1}],
-      }),
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log("Added to Cart:", data);
+  
       navigate("/cart"); 
-    })
-    .catch((error) => console.error("Error:", error));
+    
 };
 
 
@@ -69,7 +59,7 @@ const AllProducts = () => {
               <h1 className="font-bold m-4">{product?.price}</h1>{" "}
             </div>
           </div>
-          <button className="btnn1" onClick={()=>handleAddToCart()}>Add to cart</button>
+          <button className="btnn1" onClick={()=>handleAddToCart(dispatch(addTocart(product)))}>Add to cart</button>
         </div>
       ) : (
         <div>

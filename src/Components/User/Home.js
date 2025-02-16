@@ -38,7 +38,7 @@ const Home = () => {
       <div className="select">
         
         <select onChange={(e) => setSelectedCategory(e.target.value)}>
-          <option value="">Select a category</option>
+          <option value="">Select category</option>
 
 
           {category?.map((category, index) => (

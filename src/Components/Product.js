@@ -6,7 +6,7 @@ const Product = ({ products }) => {
   const navigate = useNavigate();
 
   const handleclick = (id) => {
-    console.log(id, "c_id");
+    console.log(id, "id");
 
     navigate(`/product/${id}`);
   };

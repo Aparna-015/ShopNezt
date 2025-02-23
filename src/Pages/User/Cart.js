@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 
 const Cart = () => {
 const cartitems=useSelector((state)=>state.cart.cartitems)
-console.log(cartitems);
+
 
 
 const dispatch = useDispatch();  

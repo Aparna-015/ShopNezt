@@ -130,7 +130,6 @@ header .btn1{
   height:100px ;
 }
 .product-list{
-  display: flex;
   flex-wrap: wrap;
 }
 .cart-icon{

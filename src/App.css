@@ -131,7 +131,6 @@ header .btn1{
 }
 .product-list{
   display: flex;
-  flex-wrap: wrap;
 }
 .cart-icon{
   margin-top: 10px;
